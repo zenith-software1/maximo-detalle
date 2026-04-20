@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>MD Máximo Detalle | Detailing de Élite · León, Gto.</title>
+<meta name="description" content="Detailing profesional en León, Gto. Pulido, cerámico, PPF, restauración de faros, hojalatería y más. +700 clientes. Evaluación GRATIS.">
+<meta name="theme-color" content="#030303">
+<!-- Preconnect para fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts no-render-blocking -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@300;400;600;800&family=Playfair+Display:ital,wght@1,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@300;400;600;800&family=Playfair+Display:ital,wght@1,700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@300;400;600;800&family=Playfair+Display:ital,wght@1,700&display=swap"></noscript>
+<style>
+/* ══════════════════════════════════════
+   VARIABLES & RESET
+══════════════════════════════════════ */
+:root{
+  --bg:#030303;--card:#0d0d0d;--card2:#0a0a0a;
+  --gold:#d4af37;--gold2:#f0d060;--gold3:#b8960c;
+  --glow:rgba(212,175,55,.35);--glow2:rgba(212,175,55,.12);
+  --red:#ff3b3b;--green:#25d366;--muted:#686868;
+  --ease:cubic-bezier(.25,.8,.25,1);--ease2:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-family:'Lexend',sans-serif;background:var(--bg);color:#fff;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;moz-osx-font-smoothing:grayscale}
+img{width:100%;display:block;object-fit:cover;color:transparent}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+
+/* ══════════════════════════════════════
+   PERFORMANCE: will-change solo donde importa
+══════════════════════════════════════ */
+.hero-bg{will-change:transform}
+.btn-gold{will-change:transform,box-shadow}
+
+/* ══════════════════════════════════════
+   REVEAL — GPU-friendly (solo opacity+transform)
+══════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(36px);
+  transition:opacity .8s var(--ease2),transform .8s var(--ease2)}
+.reveal.on{opacity:1;transform:translateZ(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.18s}
+.d3{transition-delay:.28s}.d4{transition-delay:.38s}
+
+/* ══════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════ */
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold3),var(--gold),var(--gold2),var(--gold));
+  background-size:250% 250%;
+  animation:shimmer 5s ease infinite;
+  color:#000;font-weight:800;text-transform:uppercase;letter-spacing:2px;
+  padding:18px 48px;border-radius:3px;display:inline-block;border:none;cursor:pointer;
+  box-shadow:0 0 24px var(--glow),0 4px 40px rgba(212,175,55,.08);
+  transition:transform .25s var(--ease),box-shadow .25s;
+  position:relative;overflow:hidden;font-size:.88rem;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+}
+.btn-gold::before{
+  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+  transform:skewX(-20deg);animation:shine 5s ease-in-out infinite;
+}
+@keyframes shine{0%,60%{left:-100%}80%,100%{left:140%}}
+@keyframes shimmer{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+.btn-gold:hover{transform:translateY(-3px) scale(1.015);
+  box-shadow:0 14px 38px rgba(212,175,55,.55),0 0 40px var(--glow)}
+.btn-ghost{
+  border:1px solid var(--gold);color:var(--gold);font-weight:700;
+  text-transform:uppercase;letter-spacing:2px;padding:14px 36px;
+  border-radius:3px;display:inline-block;
+  transition:background .25s,color .25s;font-size:.8rem;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn-ghost:hover{background:var(--gold);color:#000}
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+nav{
+  position:fixed;width:100%;top:0;left:0;z-index:100;
+  padding:14px 5%;display:flex;justify-content:space-between;align-items:center;
+  background:rgba(3,3,3,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(212,175,55,.08);transition:padding .3s,background .3s;
+}
+nav.scrolled{padding:9px 5%;background:rgba(3,3,3,.96)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:3px;line-height:1}
+.logo span{color:var(--gold)}
+.nav-r{display:flex;align-items:center;gap:18px}
+.nav-city{font-size:.62rem;font-weight:700;color:var(--muted);text-transform:uppercase;
+  letter-spacing:3px;border-left:2px solid var(--gold);padding-left:12px}
+@media(max-width:500px){.nav-city{display:none}}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero{
+  position:relative;min-height:100svh;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;text-align:center;padding:120px 20px 80px;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:url('hero.jpg') center/cover no-repeat;
+  animation:hzoom 16s ease-out forwards;
+  transform-origin:center;
+}
+@keyframes hzoom{0%{transform:scale(1.15)}100%{transform:scale(1)}}
+.hero-ov{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(160deg,rgba(0,0,0,.5) 0%,rgba(3,3,3,.75) 55%,#030303 100%);
+}
+/* línea dorada animada hero */
+.hero-line{
+  position:absolute;bottom:0;left:0;height:2px;width:0;z-index:3;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  animation:lx 2.5s 0.8s var(--ease2) forwards;
+}
+@keyframes lx{to{width:100%}}
+/* ── CANVAS PARTÍCULAS ── */
+#particle-canvas{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  width:100%;height:100%;
+}
+/* ── GLITCH TITLE EFFECT ── */
+.glitch{position:relative}
+.glitch::before,.glitch::after{
+  content:attr(data-text);position:absolute;top:0;left:0;width:100%;
+  font-family:inherit;font-size:inherit;font-weight:inherit;letter-spacing:inherit;
+  color:var(--gold);
+}
+.glitch::before{
+  clip-path:polygon(0 0,100% 0,100% 35%,0 35%);
+  transform:translate(-3px,0);
+  animation:glitch1 4s infinite linear;
+  opacity:.7;
+}
+.glitch::after{
+  clip-path:polygon(0 65%,100% 65%,100% 100%,0 100%);
+  transform:translate(3px,0);
+  animation:glitch2 4s infinite linear;
+  opacity:.5;
+}
+@keyframes glitch1{
+  0%,90%,100%{transform:translate(0)}
+  92%{transform:translate(-4px,1px);filter:hue-rotate(60deg)}
+  94%{transform:translate(3px,-1px)}
+  96%{transform:translate(-2px,2px)}
+  98%{transform:translate(0)}
+}
+@keyframes glitch2{
+  0%,90%,100%{transform:translate(0)}
+  92%{transform:translate(4px,-1px);filter:hue-rotate(-60deg)}
+  94%{transform:translate(-3px,1px)}
+  96%{transform:translate(2px,-2px)}
+  98%{transform:translate(0)}
+}
+/* ── SCANLINES HERO ── */
+.hero::before{
+  content:'';position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0) 0px,
+    rgba(0,0,0,0) 2px,
+    rgba(0,0,0,.03) 2px,
+    rgba(0,0,0,.03) 4px
+  );
+}
+/* ── GLOW BORDER CARDS ── */
+.card::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:radial-gradient(circle at 50% 0%,rgba(212,175,55,.08),transparent 60%);
+  opacity:0;transition:opacity .4s;pointer-events:none;
+}
+.card:hover::before{opacity:1}
+/* ── TRUST BAR números con glow ── */
+.ti-n{text-shadow:0 0 20px rgba(212,175,55,.4)}
+/* ── NÚMERO HERO pulsante ── */
+.hero-num-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25);
+  border-radius:4px;padding:6px 16px;margin-bottom:20px;
+  font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);animation:fu 1s .15s both;
+}
+.hero-num-badge .live{
+  width:8px;height:8px;border-radius:50%;background:#ff3b3b;
+  animation:blink .9s infinite;
+}
+/* ── MARQUEE STRIP ── */
+.marquee-strip{
+  overflow:hidden;background:var(--gold);padding:10px 0;
+  border-top:1px solid rgba(0,0,0,.2);border-bottom:1px solid rgba(0,0,0,.2);
+}
+.marquee-track{
+  display:flex;gap:0;width:max-content;
+  animation:marquee 20s linear infinite;
+}
+.marquee-track span{
+  font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:3px;
+  color:#000;padding:0 40px;white-space:nowrap;
+  border-right:1px solid rgba(0,0,0,.15);
+}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* ── FLOATING LABEL urgency ── */
+.float-label{
+  position:fixed;top:80px;right:0;z-index:99;
+  background:var(--red);color:#fff;
+  font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  padding:8px 14px 8px 18px;border-radius:4px 0 0 4px;
+  box-shadow:-4px 4px 16px rgba(255,59,59,.4);
+  animation:slideIn .8s 2s both,floatPulse 3s 3s ease-in-out infinite;
+  cursor:pointer;
+}
+@keyframes slideIn{0%{transform:translateX(100%);opacity:0}100%{transform:translateX(0);opacity:1}}
+@keyframes floatPulse{0%,100%{transform:translateX(0)}50%{transform:translateX(-4px)}}
+/* ── TIMER cuenta regresiva ── */
+.urgency-timer{
+  display:inline-flex;align-items:center;gap:6px;margin-top:10px;
+  font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;
+  color:var(--gold);
+}
+.urgency-timer .t-unit{
+  background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);
+  border-radius:3px;padding:4px 10px;min-width:44px;text-align:center;
+}
+.urgency-timer .t-sep{color:var(--muted);font-size:1rem}
+.timer-label{font-size:.6rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--muted);margin-top:4px;display:block}
+.hero-content{z-index:4;max-width:920px;width:100%;padding:0 12px}
+
+/* EYEBROW global */
+.eyebrow{
+  font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:5px;
+  color:var(--gold);display:flex;align-items:center;justify-content:center;
+  gap:12px;margin-bottom:20px;
+}
+.eyebrow::before,.eyebrow::after{
+  content:'';flex:1;max-width:40px;height:1px;background:var(--gold);opacity:.4;
+}
+
+.hero h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.2rem,12vw,8.5rem);
+  line-height:.9;letter-spacing:2px;margin-bottom:22px;
+  animation:fu 1s .25s both;
+}
+.hero h1 .g{
+  color:var(--gold);display:block;
+  text-shadow:0 0 60px rgba(212,175,55,.3);
+}
+.hero h1 .sub{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(.88rem,2.4vw,1.55rem);color:#bbb;font-weight:400;
+  letter-spacing:0;display:block;margin-top:14px;line-height:1.55;text-transform:none;
+}
+@keyframes fu{0%{opacity:0;transform:translateY(24px)}100%{opacity:1;transform:none}}
+.hero-div{width:48px;height:2px;background:var(--gold);margin:0 auto 22px;
+  animation:fu 1s .45s both;box-shadow:0 0 8px var(--gold)}
+
+.hero-bullets{
+  list-style:none;margin:0 auto 30px;display:inline-flex;flex-direction:column;
+  gap:11px;text-align:left;animation:fu 1s .65s both;width:100%;max-width:560px;
+}
+.hero-bullets li{display:flex;align-items:flex-start;gap:10px;
+  font-size:clamp(.84rem,2vw,.96rem);color:#ddd;font-weight:300}
+.ck{
+  width:20px;height:20px;border-radius:50%;
+  background:rgba(37,211,102,.1);border:1px solid var(--green);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:.58rem;color:var(--green);margin-top:2px;
+}
+.hero-bullets li strong{color:#fff;font-weight:700}
+.hero-cta{animation:fu 1s .85s both}
+.urgency{margin-top:22px;animation:fu 1s 1.05s both}
+.u-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(255,59,59,.07);border:1px solid rgba(255,59,59,.3);
+  border-radius:50px;padding:8px 20px;font-size:.73rem;font-weight:700;
+  color:#ff9090;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--red);
+  animation:blink 1.2s ease infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.1}}
+.spots{font-size:.73rem;color:var(--muted);display:block}
+.spots span{color:var(--gold);font-weight:700}
+
+.scroll-hint{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  font-size:.56rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);z-index:4;
+  animation:fu 1s 2s both;
+}
+.scroll-arr{
+  width:18px;height:18px;
+  border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);
+  transform:rotate(45deg);animation:sb 2s ease infinite;
+}
+@keyframes sb{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(4px,4px)}}
+
+/* ══════════════════════════════════════
+   TRUST BAR
+══════════════════════════════════════ */
+.trust{
+  background:var(--card);
+  border-top:1px solid rgba(212,175,55,.07);
+  border-bottom:1px solid rgba(212,175,55,.07);
+  padding:26px 5%;
+}
+.trust-in{
+  max-width:1100px;margin:0 auto;
+  display:flex;justify-content:space-around;align-items:center;
+  flex-wrap:wrap;gap:18px;
+}
+.ti{text-align:center}
+.ti-n{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3rem);
+  color:var(--gold);line-height:1;letter-spacing:2px;
+}
+.ti-l{font-size:.64rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:2px;color:var(--muted);margin-top:4px}
+.ts{width:1px;height:42px;background:rgba(255,255,255,.05)}
+@media(max-width:480px){.ts{display:none}}
+
+/* ══════════════════════════════════════
+   SEC HEADERS
+══════════════════════════════════════ */
+.sh{text-align:center;margin-bottom:52px}
+.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5.5vw,3.8rem);
+  letter-spacing:2px;line-height:1}
+.st span{color:var(--gold)}
+
+/* ══════════════════════════════════════
+   BEFORE / AFTER SLIDER — ARREGLADO
+══════════════════════════════════════ */
+.wow{padding:clamp(70px,10vw,120px) 5%;text-align:center;position:relative;overflow:hidden}
+.wow-bg-text{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,18vw,15rem);
+  color:rgba(212,175,55,.022);pointer-events:none;white-space:nowrap;letter-spacing:8px;
+  user-select:none;
+}
+.ba-outer{position:relative;max-width:980px;margin:0 auto}
+.ba{
+  position:relative;height:clamp(220px,44vw,500px);
+  border-radius:6px;overflow:hidden;cursor:ew-resize;background:#111;
+  box-shadow:0 20px 60px rgba(0,0,0,.85),0 0 0 1px rgba(212,175,55,.2);
+  touch-action:none;user-select:none;-webkit-user-select:none;
+}
+/* ambas imágenes: mismo tamaño, posición absoluta */
+.ba img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;pointer-events:none;display:block;
+}
+.ba-after{z-index:1}
+.ba-before{z-index:2;clip-path:inset(0 50% 0 0)} /* se recorta, NO se escala */
+
+/* divisor */
+.ba-div{
+  position:absolute;top:0;left:50%;z-index:5;
+  width:3px;height:100%;
+  background:var(--gold);
+  box-shadow:0 0 16px var(--glow);
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+/* círculo handle — COMPLETO, centrado en la línea */
+.ba-handle{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:46px;height:46px;
+  background:var(--gold);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#000;font-weight:900;font-size:.9rem;letter-spacing:-2px;
+  box-shadow:0 0 0 3px #fff,0 0 20px rgba(0,0,0,.7),0 0 14px var(--glow);
+  pointer-events:none;
+}
+.ba-handle svg{width:20px;height:20px;fill:#000}
+
+.cl{
+  position:absolute;bottom:18px;z-index:6;
+  background:rgba(0,0,0,.85);backdrop-filter:blur(6px);
+  padding:5px 14px;font-size:.62rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:3px;border-radius:2px;
+}
+.cl-a{left:16px;border-top:2px solid var(--red);color:#ff9090}
+.cl-d{right:16px;border-top:2px solid var(--green);color:#90ffb8}
+.sh-hint{margin-top:14px;font-size:.66rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase}
+
+/* ══════════════════════════════════════
+   SERVICIOS — grid con hover glow
+══════════════════════════════════════ */
+.services{
+  padding:clamp(70px,10vw,120px) 5%;
+  background:linear-gradient(180deg,var(--card) 0%,#060606 100%);
+}
+.sg{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));
+  gap:2px;max-width:1260px;margin:0 auto;
+  background:rgba(212,175,55,.045);border:1px solid rgba(212,175,55,.045);
+}
+.card{
+  background:var(--bg);overflow:hidden;
+  transition:background .3s,box-shadow .3s;
+  position:relative;
+}
+.card::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:0;height:2px;background:var(--gold);
+  transition:width .45s var(--ease);
+}
+.card:hover::after{width:100%}
+.card:hover{background:#0f0e0e;box-shadow:inset 0 0 40px rgba(212,175,55,.04)}
+.ci{height:clamp(180px,28vw,240px);overflow:hidden;position:relative}
+.ci::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.55),transparent);
+}
+.ci img{height:100%;transition:transform .65s var(--ease)}
+.card:hover .ci img{transform:scale(1.06)}
+.cb{padding:clamp(20px,3.5vw,30px)}
+.ctag{font-size:.58rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;display:block}
+.cb h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3.2vw,1.8rem);
+  letter-spacing:1px;margin-bottom:10px}
+.cb p{color:var(--muted);font-size:clamp(.82rem,1.7vw,.87rem);line-height:1.75;font-weight:300}
+.cf{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:7px}
+.cf li{font-size:clamp(.75rem,1.5vw,.79rem);color:#aaa;
+  display:flex;align-items:flex-start;gap:7px;font-weight:300}
+.cf li::before{content:'—';color:var(--gold);font-weight:700;flex-shrink:0}
+
+/* ══════════════════════════════════════
+   RESTORFX SPOTLIGHT
+══════════════════════════════════════ */
+.rfx{
+  padding:clamp(70px,10vw,100px) 5%;
+  background:linear-gradient(135deg,#060606,#0b0900,#060606);
+  text-align:center;position:relative;overflow:hidden;
+}
+.rfx-bg-text{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,12vw,11rem);
+  color:rgba(212,175,55,.028);pointer-events:none;white-space:nowrap;
+  letter-spacing:6px;user-select:none;
+}
+.rfx-g{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(28px,5vw,60px);max-width:1100px;margin:52px auto 0;
+  align-items:center;text-align:left;
+}
+@media(max-width:768px){.rfx-g{grid-template-columns:1fr}}
+.rfx-img{
+  border-radius:6px;overflow:hidden;
+  box-shadow:0 20px 55px rgba(0,0,0,.7),0 0 0 1px rgba(212,175,55,.12);
+  position:relative;
+}
+.rfx-img::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,rgba(212,175,55,.05),transparent);
+  pointer-events:none;
+}
+.rfx-img img{height:clamp(220px,32vw,400px)}
+.rfx-c h3{font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1.9rem,4vw,3rem);letter-spacing:2px;line-height:1;margin-bottom:16px}
+.rfx-c h3 span{color:var(--gold)}
+.rfx-c p{color:var(--muted);font-size:clamp(.83rem,1.7vw,.9rem);
+  line-height:1.8;font-weight:300;margin-bottom:22px}
+.rfx-l{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:30px}
+.rfx-l li{display:flex;align-items:flex-start;gap:11px;
+  font-size:clamp(.83rem,1.7vw,.87rem);color:#ccc;font-weight:300}
+.ri{color:var(--green);font-size:.76rem;margin-top:2px;flex-shrink:0}
+
+/* ══════════════════════════════════════
+   PARA QUIÉN
+══════════════════════════════════════ */
+.aud{padding:clamp(70px,10vw,100px) 5%;background:#060606;text-align:center}
+.ag{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
+  gap:2px;max-width:1000px;margin:52px auto 0;background:rgba(255,255,255,.02);
+}
+.ac{
+  background:var(--card);padding:clamp(28px,4.5vw,44px) clamp(24px,3.5vw,34px);
+  text-align:left;transition:background .3s;position:relative;overflow:hidden;
+}
+.ac::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,175,55,.04),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.ac:hover::before{opacity:1}
+.ac::after{content:'';position:absolute;left:0;top:0;width:3px;height:0;
+  background:var(--gold);transition:height .45s var(--ease)}
+.ac:hover::after{height:100%}
+.ac:hover{background:#0f0e0e}
+.ai{font-size:2rem;margin-bottom:16px;display:block}
+.ac h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,2.8vw,1.6rem);
+  letter-spacing:1px;margin-bottom:10px;color:var(--gold)}
+.ac p{font-size:clamp(.81rem,1.7vw,.86rem);color:var(--muted);line-height:1.75;font-weight:300}
+
+/* ══════════════════════════════════════
+   PROCESO
+══════════════════════════════════════ */
+.process{padding:clamp(70px,10vw,120px) 5%;text-align:center;position:relative}
+.pg{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));
+  gap:0;max-width:1100px;margin:52px auto 0;position:relative;
+}
+.pg::before{
+  content:'';position:absolute;top:32px;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.2;
+}
+@media(max-width:600px){.pg::before{display:none}}
+.step{
+  padding:clamp(38px,5.5vw,50px) clamp(16px,2.5vw,24px) clamp(30px,4.5vw,40px);
+  border-right:1px solid rgba(255,255,255,.04);transition:background .3s;
+}
+.step:last-child{border-right:none}
+@media(max-width:600px){
+  .step{border-right:none;border-bottom:1px solid rgba(255,255,255,.04)}
+  .step:last-child{border-bottom:none}
+}
+.step:hover{background:rgba(212,175,55,.025)}
+.sn{
+  width:62px;height:62px;background:var(--bg);
+  border:1px solid rgba(212,175,55,.28);color:var(--gold);
+  font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:1px;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;transition:all .3s;
+}
+.step:hover .sn{background:var(--gold);color:#000;box-shadow:0 0 24px var(--glow)}
+.step h4{font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1.2rem,2.4vw,1.42rem);letter-spacing:1px;margin-bottom:8px}
+.step p{font-size:clamp(.81rem,1.7vw,.86rem);color:var(--muted);line-height:1.7;font-weight:300}
+
+/* ══════════════════════════════════════
+   PAQUETES
+══════════════════════════════════════ */
+.pricing{padding:clamp(70px,10vw,120px) 5%;background:var(--card);text-align:center}
+.prg{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));
+  gap:2px;max-width:1020px;margin:52px auto 0;
+  background:rgba(212,175,55,.04);border:1px solid rgba(212,175,55,.04);
+}
+.pkg{background:var(--bg);padding:clamp(32px,5.5vw,48px) clamp(24px,3.5vw,34px);
+  position:relative;transition:background .3s}
+.pkg.feat{
+  background:linear-gradient(160deg,#0e0d00,#121200);
+  border:1px solid rgba(212,175,55,.2);
+}
+.pkg.feat::before{
+  content:'MÁS POPULAR';position:absolute;top:-1px;left:50%;
+  transform:translateX(-50%);background:var(--gold);color:#000;
+  font-size:.56rem;font-weight:800;letter-spacing:3px;
+  padding:5px 16px;white-space:nowrap;
+}
+.pkg:hover{background:#0f0e0e}
+.pn{font-family:'Bebas Neue',sans-serif;font-size:1.85rem;letter-spacing:2px;
+  color:var(--gold);margin-bottom:5px}
+.pd{font-size:.74rem;color:var(--muted);font-weight:300;margin-bottom:24px}
+.pp{font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.8rem,6.5vw,3.8rem);letter-spacing:2px;line-height:1;margin-bottom:3px}
+.pp sup{font-size:1.1rem;color:var(--muted)}
+.pf{font-size:.62rem;color:var(--muted);text-transform:uppercase;
+  letter-spacing:2px;margin-bottom:24px;display:block}
+.pl{list-style:none;text-align:left;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.pl li{font-size:clamp(.77rem,1.7vw,.82rem);color:#bbb;
+  display:flex;align-items:flex-start;gap:9px;font-weight:300}
+.fi{color:var(--green);font-size:.68rem;margin-top:3px;flex-shrink:0}
+
+/* ══════════════════════════════════════
+   TESTIMONIOS
+══════════════════════════════════════ */
+.test{
+  padding:clamp(70px,10vw,120px) 5%;background:var(--bg);
+  text-align:center;position:relative;overflow:hidden;
+}
+.test-bg-q{
+  position:absolute;top:-60px;left:2%;
+  font-family:'Playfair Display',serif;font-size:clamp(10rem,28vw,25rem);
+  color:rgba(212,175,55,.022);pointer-events:none;line-height:1;user-select:none;
+}
+.tg{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));
+  gap:2px;max-width:1200px;margin:52px auto 0;background:rgba(255,255,255,.018);
+}
+.tc{
+  background:var(--card);padding:clamp(26px,4.5vw,40px) clamp(22px,3.5vw,36px);
+  text-align:left;transition:background .3s;position:relative;overflow:hidden;
+}
+.tc::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,175,55,.03),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.tc:hover::before{opacity:1}
+.tc::after{content:'';position:absolute;top:0;left:0;width:3px;height:0;
+  background:var(--gold);transition:height .45s var(--ease)}
+.tc:hover::after{height:100%}
+.tc:hover{background:#0f0e0e}
+.stars{color:var(--gold);margin-bottom:20px;font-size:.88rem;letter-spacing:3px}
+.tt{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(.88rem,1.9vw,.96rem);color:#ddd;line-height:1.75;margin-bottom:24px;
+}
+.tu{display:flex;align-items:center;gap:12px}
+.tav{width:42px;height:42px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  border:2px solid rgba(212,175,55,.26)}
+.tav img{width:100%;height:100%}
+.un{font-size:.85rem;font-weight:700;margin-bottom:2px}
+.ur{font-size:.65rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:2px}
+
+/* ══════════════════════════════════════
+   FAQ
+══════════════════════════════════════ */
+.faq{padding:clamp(70px,10vw,100px) 5%;background:var(--card);text-align:center}
+.fl{max-width:800px;margin:52px auto 0;text-align:left}
+.fi-item{border-bottom:1px solid rgba(255,255,255,.05)}
+.fq{
+  width:100%;background:none;border:none;color:#fff;
+  font-family:'Lexend',sans-serif;font-size:clamp(.86rem,1.9vw,.93rem);font-weight:600;
+  padding:20px 0;display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;gap:16px;text-align:left;-webkit-tap-highlight-color:transparent;
+}
+.fiq{color:var(--gold);font-size:1.2rem;flex-shrink:0;
+  transition:transform .3s var(--ease);line-height:1}
+.fi-item.open .fiq{transform:rotate(45deg)}
+.fa{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.fi-item.open .fa{max-height:500px}
+.fa p{font-size:clamp(.82rem,1.7vw,.87rem);color:var(--muted);
+  line-height:1.8;font-weight:300;padding-bottom:20px}
+
+/* ══════════════════════════════════════
+   UBICACIÓN
+══════════════════════════════════════ */
+.loc{padding:clamp(70px,10vw,100px) 5%;background:#060606;text-align:center}
+.li{
+  display:grid;grid-template-columns:1fr 1.6fr;
+  gap:clamp(28px,5.5vw,58px);max-width:1100px;margin:52px auto 0;
+  text-align:left;align-items:center;
+}
+@media(max-width:860px){.li{grid-template-columns:1fr}}
+.loc-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.9rem,4.5vw,2.6rem);
+  letter-spacing:2px;margin-bottom:14px;color:var(--gold)}
+.loc-p{font-size:clamp(.83rem,1.7vw,.87rem);color:var(--muted);
+  line-height:1.8;font-weight:300;margin-bottom:24px}
+.ld{display:flex;align-items:flex-start;gap:13px;margin-bottom:15px}
+.lic{width:36px;height:36px;border:1px solid rgba(212,175,55,.24);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;flex-shrink:0}
+.lt strong{display:block;font-size:.77rem;color:#fff;font-weight:700;margin-bottom:2px}
+.lt span{font-size:clamp(.77rem,1.6vw,.81rem);color:var(--muted);font-weight:300}
+.mw{border-radius:6px;overflow:hidden;height:clamp(280px,38vw,430px);
+  border:1px solid rgba(212,175,55,.12);box-shadow:0 16px 50px rgba(0,0,0,.6)}
+.mw iframe{width:100%;height:100%;border:none;
+  filter:invert(90%) hue-rotate(180deg) grayscale(72%) contrast(116%)}
+
+/* ══════════════════════════════════════
+   CTA FINAL
+══════════════════════════════════════ */
+.cta{
+  padding:clamp(100px,14vw,180px) 20px;text-align:center;
+  position:relative;overflow:hidden;
+  background:linear-gradient(rgba(0,0,0,.87),rgba(0,0,0,.95)),
+  url('cta-bg.jpg') center/cover;
+}
+@media(max-width:768px){.cta{background-attachment:scroll}}
+.cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 60%,rgba(212,175,55,.06) 0%,transparent 65%);
+  pointer-events:none;
+}
+/* línea superior dorada */
+.cta::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.cta-in{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:0 12px}
+.cta h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.8rem,8.5vw,6.5rem);letter-spacing:3px;line-height:.95;margin-bottom:20px;
+}
+.cta h2 span{color:var(--gold);text-shadow:0 0 40px rgba(212,175,55,.25)}
+.cs{color:#666;font-size:clamp(.86rem,1.9vw,.96rem);
+  margin-bottom:40px;display:block;font-weight:300;line-height:1.7}
+.cg{
+  margin-top:32px;display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  border-radius:3px;padding:12px 24px;
+  font-size:.72rem;color:var(--muted);font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+}
+.wt{
+  display:block;margin-top:24px;font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1.4rem,3.8vw,2rem);letter-spacing:4px;color:var(--muted);
+  transition:color .25s;
+}
+.wt:hover{color:var(--green)}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer{
+  background:#000;padding:30px 5%;
+  border-top:1px solid rgba(255,255,255,.04);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.fl-logo{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:3px}
+.fl-logo span{color:var(--gold)}
+footer p{font-size:.67rem;color:#222;font-weight:300;text-align:center}
+.fs{display:flex;gap:10px}
+.fs a{
+  width:34px;height:34px;border:1px solid rgba(255,255,255,.07);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:.7rem;transition:border-color .25s,color .25s;
+  -webkit-tap-highlight-color:transparent;
+}
+.fs a:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:580px){footer{flex-direction:column;text-align:center}}
+
+/* ══════════════════════════════════════
+   WA FLOTANTE
+══════════════════════════════════════ */
+.wa{
+  position:fixed;bottom:24px;right:24px;
+  background:#25d366;width:58px;height:58px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  z-index:200;box-shadow:0 6px 20px rgba(37,211,102,.38);
+  transition:transform .25s var(--ease),box-shadow .25s;
+  -webkit-tap-highlight-color:transparent;
+}
+.wa:hover{transform:scale(1.1) rotate(-8deg);
+  box-shadow:0 12px 32px rgba(37,211,102,.55)}
+.wa svg{fill:#fff;width:29px;height:29px}
+.wa-p{
+  position:absolute;inset:-5px;border-radius:50%;
+  border:2px solid rgba(37,211,102,.4);
+  animation:wp 2.5s ease-out infinite;
+}
+@keyframes wp{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.6);opacity:0}}
+
+/* ══════════════════════════════════════
+   MOBILE EXTRAS
+══════════════════════════════════════ */
+@media(max-width:480px){
+  .btn-gold{padding:15px 28px;font-size:.82rem;width:100%;text-align:center;display:block}
+  .btn-ghost{width:100%;text-align:center;display:block;margin-top:10px}
+  .cg{display:none}
+  .wa{width:52px;height:52px;bottom:16px;right:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<a class="float-label" href="https://api.whatsapp.com/send?phone=524791527895&text=Quiero%20mi%20evaluación%20GRATIS" aria-label="Solo 3 lugares disponibles">⚡ 3 LUGARES HOY</a>
+
+<nav id="nav">
+  <div class="logo">MD <span>Máximo Detalle</span></div>
+  <div class="nav-r">
+    <a href="https://api.whatsapp.com/send?phone=524791527895&text=Hola,%20quiero%20cotizar%20un%20servicio" class="btn-gold" style="padding:10px 20px;font-size:.68rem">Cotizar ahora</a>
+    <div class="nav-city">León · Gto</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg" role="img" aria-label="Auto brillante después de detailing"></div>
+  <div class="hero-ov"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="hero-line" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-num-badge"><span class="live" aria-hidden="true"></span>+700 autos transformados en León</div>
+    <div class="eyebrow">Detailing Profesional · León, Guanajuato</div>
+    <h1>
+      Tu auto grita<br>
+      <span class="g glitch" data-text="que necesita ayuda">que necesita ayuda</span>
+      <span class="sub">Cada día que pasa sin detailing, vale menos. Nosotros lo recuperamos hoy.</span>
+    </h1>
+    <div class="hero-div" aria-hidden="true"></div>
+    <ul class="hero-bullets">
+      <li><span class="ck" aria-hidden="true">✓</span><span><strong>+700 autos transformados</strong> en León — el tuyo puede ser el siguiente</span></li>
+      <li><span class="ck" aria-hidden="true">✓</span><span><strong>Resultados en 24 horas</strong> — o menos. Sin excusas, sin demoras</span></li>
+      <li><span class="ck" aria-hidden="true">✓</span><span><strong>Evaluación GRATIS hoy</strong> — mañana puede no haber lugar disponible</span></li>
+    </ul>
+    <div class="hero-cta">
+      <a href="https://api.whatsapp.com/send?phone=524791527895&text=Hola,%20quiero%20agendar%20mi%20evaluación%20gratuita" class="btn-gold">Agenda tu evaluación gratuita</a>
+      <a href="#servicios" class="btn-ghost" style="margin-top:12px">Ver todos los servicios</a>
+    </div>
+    <div class="urgency">
+      <div class="u-badge"><span class="dot" aria-hidden="true"></span>⚡ ATENCIÓN: Quedan 3 lugares esta semana</div>
+      <span class="spots">🌧️ La lluvia destruye tu pintura cada semana. <span>Cada día que esperas, tu auto vale menos.</span></span>
+      <div class="urgency-timer" aria-label="Cuenta regresiva oferta">
+        <div><div class="t-unit" id="tc-h">00</div></div>
+        <span class="t-sep">:</span>
+        <div><div class="t-unit" id="tc-m">00</div></div>
+        <span class="t-sep">:</span>
+        <div><div class="t-unit" id="tc-s">00</div></div>
+      </div>
+      <span class="timer-label">Tiempo restante para precio especial</span>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><span>Descubre</span><div class="scroll-arr"></div></div>
+</header>
+
+<!-- TRUST BAR -->
+<div class="trust reveal">
+  <div class="trust-in">
+    <div class="ti"><div class="ti-n" data-target="700">0</div><div class="ti-l">Autos restaurados</div></div>
+    <div class="ts" aria-hidden="true"></div>
+    <div class="ti"><div class="ti-n">4.9★</div><div class="ti-l">Calificación Google</div></div>
+    <div class="ts" aria-hidden="true"></div>
+    <div class="ti"><div class="ti-n">8</div><div class="ti-l">Servicios especializados</div></div>
+    <div class="ts" aria-hidden="true"></div>
+    <div class="ti"><div class="ti-n">100%</div><div class="ti-l">Satisfacción garantizada</div></div>
+  </div>
+</div>
+
+<!-- MARQUEE STRIP -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span>CORRECCIÓN DE PINTURA</span><span>BLINDAJE CERÁMICO</span>
+    <span>PPF INVISIBLE</span><span>RESTAURACIÓN DE FAROS</span>
+    <span>PULIDO PROFESIONAL</span><span>INTERIOR LIKE-NEW</span>
+    <span>HOJALATERÍA & PINTURA</span><span>RESTORFX</span>
+    <span>POLARIZADO</span><span>EVALUACIÓN GRATIS</span>
+    <span>CORRECCIÓN DE PINTURA</span><span>BLINDAJE CERÁMICO</span>
+    <span>PPF INVISIBLE</span><span>RESTAURACIÓN DE FAROS</span>
+    <span>PULIDO PROFESIONAL</span><span>INTERIOR LIKE-NEW</span>
+    <span>HOJALATERÍA & PINTURA</span><span>RESTORFX</span>
+    <span>POLARIZADO</span><span>EVALUACIÓN GRATIS</span>
+  </div>
+</div>
+
+<!-- BEFORE / AFTER -->
+<section class="wow reveal">
+  <div class="wow-bg-text" aria-hidden="true">DETAIL</div>
+  <div class="sh">
+    <div class="eyebrow">Corrección de Pintura</div>
+    <h2 class="st">Lo que le pasa a tu auto<br><span>en manos de expertos.</span></h2>
+  </div>
+  <div class="ba-outer">
+    <div class="ba" id="ba" role="img" aria-label="Comparación antes y después del detailing">
+      <img src="despues.jpg" alt="Pintura restaurada con acabado espejo" class="ba-after" loading="lazy">
+      <img src="antes.jpg" alt="Pintura opaca con rayones antes del detailing" class="ba-before" id="ba-bimg" loading="lazy">
+      <div class="ba-div" id="ba-line">
+        <div class="ba-handle" aria-hidden="true">
+          <!-- flechas SVG para el handle -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5l-7 7 7 7M16 5l7 7-7 7" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="cl cl-a" aria-label="Antes">Antes</div>
+      <div class="cl cl-d" aria-label="Después">Después</div>
+    </div>
+  </div>
+  <p class="sh-hint">← arrastra para comparar →</p>
+</section>
+
+<!-- SERVICIOS -->
+<section class="services reveal" id="servicios">
+  <div class="sh">
+    <div class="eyebrow">Lo que ofrecemos</div>
+    <h2 class="st">8 Razones para <span>llamarnos hoy</span></h2>
+  </div>
+  <div class="sg">
+    <div class="card reveal d1">
+      <div class="ci"><img src="interior.jpg" alt="Lavado de Interior y Tapicería" loading="lazy"></div>
+      <div class="cb"><span class="ctag">Servicio 01</span><h3>Interior & Tapicería</h3>
+      <p>No es un simple aspirado. Lavamos cada rincón: asientos, alfombras, paneles. Tu cabina vuelve a oler y sentirse nueva desde el primer minuto.</p>
+      <ul class="cf"><li>Eliminación de manchas difíciles</li><li>Desinfección y ozonización</li><li>Acondicionamiento de piel</li></ul></div>
+    </div>
+    <div class="card reveal d2">
+      <div class="ci"><img src="pulido.jpg" alt="Pulido y Abrillantado de Pintura" loading="lazy"></div>
+      <div class="cb"><span class="ctag">Servicio 02</span><h3>Pulido & Abrillantado</h3>
+      <p>Tres pasos de pulido profesional devuelven el brillo de fábrica. Swirls, rayones y opacidad desaparecen. Tu auto vuelve a imponer desde 50 metros.</p>
+      <ul class="cf"><li>Corrección de una o dos etapas</li><li>Eliminación de marcas de agua</li><li>Brillo espejo garantizado</li></ul></div>
+    </div>
+    <div class="card reveal d3">
+      <div class="ci"><img src="ceramico.jpg" alt="Tratamiento Cerámico Protect Pro" loading="lazy"></div>
+      <div class="cb"><span class="ctag">Servicio 03</span><h3>Blindaje Cerámico</h3>
+      <p>Escudo molecular que sella tu pintura, repele agua, suciedad y UV. Brillo que dura hasta 2 años sin esfuerzo extra en el lavado.</p>
+      <ul class="cf"><li>Protección UV y química avanzada</li><li>Hidrofobia extrema</li><li>Duración de hasta 2 años</li></ul></div>
+    </div>
+    <div class="card reveal d1">
+      <div class="ci"><img src="faros.jpg" alt="Restauración de Faros con RESTORFX" loading="lazy"></div>
+      <div class="cb"><span class="ctag">Servicio 04</span><h3>Restauración de Faros</h3>
+      <p>Faros amarillentos arruinan la estética y reducen tu visibilidad nocturna. Los regeneramos con RESTORFX — no un pulido temporal, restauración real.</p>
+      <ul class="cf"><li>Eliminación de oxidación profunda</li><li>Recubrimiento especializado</li><li>Mayor visibilidad nocturna</li></ul></div>
+    </div>
+    <div class="card reveal d2">
+      <div class="ci"><img src="hojalateria.jpg" alt="Hojalatería y Pintura Automotriz" loading="lazy"></div>
+      <div class="cb"><span class="ctag">Servicio 05</span><h3>Hojalatería & Pintura</h3>
+      <p>Reparaciones estructurales y estéticas con igualación de color precisa. Acabados que se notan desde el primer vistazo — como recién salido de agencia.</p>
+      <ul class="cf"><li>Reparación de abolladuras</li><li>Igualación de color exacta</li><li>Acabado nivel agencia</li></ul></div>
+    </div>
+    <div class="card reveal d3">
+      <div class="ci"><img src="polarizado.jpg" alt="Polarizado Profesional" loading="lazy"></div>
+      <div class="cb"><span class="ctag">Servicio 06</span><h3>Polarizado</h3>
+      <p>Película de alto rendimiento instalada de forma profesional. Privacidad, bloqueo UV hasta 99% y reducción de calor interior — sin perder visibilidad.</p>
+      <ul class="cf"><li>Bloqueo UV hasta 99%</li><li>Reducción de temperatura interior</li><li>Privacidad sin perder visibilidad</li></ul></div>
+    </div>
+    <div class="card reveal d1">
+      <div class="ci"><img src="ppf.jpg" alt="PPF Paint Protection Film" loading="lazy"></div>
+      <div class="cb"><span class="ctag">Servicio 07</span><h3>PPF — Protección Invisible</h3>
+      <p>Película transparente que absorbe impactos, previene rayones y protege la pintura original sin cambiar el diseño de tu auto. Protección que no se ve — pero se siente.</p>
+      <ul class="cf"><li>Absorción de impactos y piedras</li><li>Autocicatrización superficial</li><li>Protección sin cambiar el look</li></ul></div>
+    </div>
+    <div class="card reveal d2">
+      <div class="ci"><img src="restorfx.jpg" alt="RestorFX Restauración de Brillo" loading="lazy"></div>
+      <div class="cb"><span class="ctag">Servicio 08</span><h3>RestorFX — Sin Pulir</h3>
+      <p>El brillo de fábrica sin pulir ni repintar. Elimina rayones y opacidad en menos de 36 horas, incrementa la vida del transparente y agrega valor de reventa.</p>
+      <ul class="cf"><li>Sin pulido ni repintado</li><li>Recupera valor de reventa</li><li>Resultados en menos de 36 hrs</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESTORFX SPOTLIGHT -->
+<section class="rfx reveal">
+  <div class="rfx-bg-text" aria-hidden="true">RESTORFX</div>
+  <div class="rfx-g">
+    <div class="rfx-img"><img src="antesdespues.jpg" alt="Comparación antes y después con RestorFX" loading="lazy"></div>
+    <div class="rfx-c">
+      <div class="eyebrow" style="justify-content:flex-start">Tecnología exclusiva</div>
+      <h3>RestorFX:<br><span>El brillo original,</span><br>sin tocar la pintura</h3>
+      <p>No es pulido. No es repintado. Es un sistema que regenera la superficie y la protege — resultados que tus vecinos van a notar.</p>
+      <ul class="rfx-l">
+        <li><span class="ri" aria-hidden="true">✅</span>Recupera el brillo original de fábrica al 100%</li>
+        <li><span class="ri" aria-hidden="true">✅</span>Incrementa la vida del transparente 7–10 micrones</li>
+        <li><span class="ri" aria-hidden="true">✅</span>Agrega valor de reventa a tu vehículo</li>
+        <li><span class="ri" aria-hidden="true">✅</span>Más económico que cualquier repintado</li>
+        <li><span class="ri" aria-hidden="true">✅</span>Elimina rayones y opacidad en menos de 36 horas</li>
+      </ul>
+      <a href="https://api.whatsapp.com/send?phone=524791527895&text=Quiero%20saber%20más%20sobre%20RestorFX" class="btn-gold">Cotizar RestorFX ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="aud reveal">
+  <div class="sh">
+    <div class="eyebrow">Nuestros clientes</div>
+    <h2 class="st">¿Para quién es <span>MD?</span></h2>
+  </div>
+  <div class="ag">
+    <div class="ac"><span class="ai" aria-hidden="true">💎</span><h3>Propietarios Exigentes</h3><p>Para quienes saben el valor de su inversión y exigen interior y exterior impecable. No aceptan menos que lo mejor para su auto.</p></div>
+    <div class="ac"><span class="ai" aria-hidden="true">🔍</span><h3>Amantes del Detalle</h3><p>Para quienes buscan más que un simple detallado — quieren ver hasta el último rincón perfecto, sin compromisos.</p></div>
+    <div class="ac"><span class="ai" aria-hidden="true">🔧</span><h3>Restauradores</h3><p>Hojalatería, pintura, faros, brillo — si tu auto necesita volver a la vida, aquí termina la búsqueda.</p></div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="process reveal">
+  <div class="sh">
+    <div class="eyebrow">Metodología MD</div>
+    <h2 class="st">De opaco a<span> impresionante</span></h2>
+  </div>
+  <div class="pg">
+    <div class="step"><div class="sn" aria-hidden="true">01</div><h4>Diagnóstico</h4><p>Evaluamos el estado real de tu auto sin costo, con luz de inspección profesional.</p></div>
+    <div class="step"><div class="sn" aria-hidden="true">02</div><h4>Cotización</h4><p>Precio fijo, sin sorpresas al final. Opciones claras, tú decides sin presión.</p></div>
+    <div class="step"><div class="sn" aria-hidden="true">03</div><h4>Restauración</h4><p>Proceso documentado con fotos para que veas la evolución en tiempo real.</p></div>
+    <div class="step"><div class="sn" aria-hidden="true">04</div><h4>Entrega</h4><p>Auto transformado + tips de mantenimiento + seguimiento post-servicio incluido.</p></div>
+  </div>
+</section>
+
+<!-- PAQUETES -->
+<section class="pricing reveal">
+  <div class="sh">
+    <div class="eyebrow">Inversión</div>
+    <h2 class="st">Elige tu <span>Paquete</span></h2>
+  </div>
+  <div class="prg">
+    <div class="pkg">
+      <div class="pn">Esencial</div><div class="pd">Para entrar al juego — rápido y sin pretextos</div>
+      <div class="pp"><sup>$</sup>1,800</div><span class="pf">precio desde</span>
+      <ul class="pl">
+        <li><span class="fi" aria-hidden="true">✓</span>Lavado de detalle exterior</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Descontaminación de pintura</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Pulido de un paso</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Sealant protector</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Limpieza interior básica</li>
+      </ul>
+      <a href="https://api.whatsapp.com/send?phone=524791527895&text=Quiero%20cotizar%20el%20paquete%20Esencial" class="btn-ghost" style="width:100%;text-align:center;display:block">Cotizar</a>
+    </div>
+    <div class="pkg feat">
+      <div class="pn">Élite</div><div class="pd">El que elige quien en serio cuida su auto</div>
+      <div class="pp"><sup>$</sup>3,500</div><span class="pf">precio desde</span>
+      <ul class="pl">
+        <li><span class="fi" aria-hidden="true">✓</span>Corrección de pintura 2 etapas</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Eliminación de swirls y rayones</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Blindaje cerámico SiO2</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Interior completo + ozonización</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Restauración de plásticos</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Seguimiento 30 días incluido</li>
+      </ul>
+      <a href="https://api.whatsapp.com/send?phone=524791527895&text=Quiero%20el%20paquete%20Elite" class="btn-gold" style="width:100%;display:block;text-align:center">Quiero este paquete</a>
+    </div>
+    <div class="pkg">
+      <div class="pn">Presidencial</div><div class="pd">Para los que saben que su auto es su imagen</div>
+      <div class="pp"><sup>$</sup>6,000</div><span class="pf">precio desde</span>
+      <ul class="pl">
+        <li><span class="fi" aria-hidden="true">✓</span>Todo el paquete Élite</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Cerámico de alta durabilidad</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Restauración de faros RESTORFX</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Detailing de motor</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Tratamiento llantas y rines</li>
+        <li><span class="fi" aria-hidden="true">✓</span>Reporte fotográfico completo</li>
+      </ul>
+      <a href="https://api.whatsapp.com/send?phone=524791527895&text=Quiero%20el%20paquete%20Presidencial" class="btn-ghost" style="width:100%;text-align:center;display:block">Cotizar</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="test reveal">
+  <div class="test-bg-q" aria-hidden="true">"</div>
+  <div class="sh">
+    <div class="eyebrow">Clientes reales</div>
+    <h2 class="st">Resultados que <span>hablan</span></h2>
+  </div>
+  <div class="tg">
+    <div class="tc">
+      <div class="stars" aria-label="5 estrellas">★★★★★</div>
+      <p class="tt">"El servicio de restauración de faros fue increíble. Mis faros parecen nuevos y la visibilidad mejoró notablemente. Nunca pensé que quedaran así de bien."</p>
+      <div class="tu"><div class="tav"><img src="testimonio1.jpg" alt="María López" loading="lazy"></div><div><div class="un">María López</div><div class="ur">Ingeniera · León, Gto.</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="stars" aria-label="5 estrellas">★★★★★</div>
+      <p class="tt">"El lavado profundo de tapicería dejó mi auto impecable. Nunca lo había visto tan limpio y fresco. Excelente trabajo y atención de principio a fin."</p>
+      <div class="tu"><div class="tav"><img src="testimonio2.jpg" alt="Carlos Ramírez" loading="lazy"></div><div><div class="un">Carlos Ramírez</div><div class="ur">Abogado · León, Gto.</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="stars" aria-label="5 estrellas">★★★★★</div>
+      <p class="tt">"El pulido y abrillantado le devolvió el brillo original. Profesionales de verdad — saben exactamente lo que hacen. Resultado de 10, lo recomiendo."</p>
+      <div class="tu"><div class="tav"><img src="testimonio3.jpg" alt="Ana Fernández" loading="lazy"></div><div><div class="un">Ana Fernández</div><div class="ur">Diseñadora · León, Gto.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq reveal">
+  <div class="sh">
+    <div class="eyebrow">Preguntas frecuentes</div>
+    <h2 class="st">Resolvemos tus <span>dudas</span></h2>
+  </div>
+  <div class="fl">
+    <div class="fi-item">
+      <button class="fq">¿Qué incluye el lavado profundo de tapicería e interior?<span class="fiq" aria-hidden="true">+</span></button>
+      <div class="fa"><p>Limpieza exhaustiva de todas las superficies interiores: eliminación de manchas, tratamiento de olores, desinfección de alfombras, asientos y paneles. Productos especializados que limpian a fondo sin dañar los materiales.</p></div>
+    </div>
+    <div class="fi-item">
+      <button class="fq">¿Cuánto dura el efecto del cerámico?<span class="fiq" aria-hidden="true">+</span></button>
+      <div class="fa"><p>El cerámico Protect Pro protege entre 1 y 2 años según las condiciones ambientales y el cuidado posterior. Seguir las recomendaciones de mantenimiento garantiza la máxima durabilidad.</p></div>
+    </div>
+    <div class="fi-item">
+      <button class="fq">¿Cómo se realiza la restauración de faros?<span class="fiq" aria-hidden="true">+</span></button>
+      <div class="fa"><p>Usamos el sistema RESTORFX: eliminamos la oxidación y aplicamos un recubrimiento que regenera la superficie del faro. No es un pulido temporal — es restauración duradera que mejora visibilidad y estética.</p></div>
+    </div>
+    <div class="fi-item">
+      <button class="fq">¿Qué es el PPF y cómo se aplica?<span class="fiq" aria-hidden="true">+</span></button>
+      <div class="fa"><p>El PPF (Paint Protection Film) es una lámina transparente de alta resistencia que protege de arañazos, impactos y piedras sin cambiar el aspecto del vehículo. Ideal para mantener la pintura perfecta a largo plazo.</p></div>
+    </div>
+    <div class="fi-item">
+      <button class="fq">¿Cuánto tiempo tarda el servicio?<span class="fiq" aria-hidden="true">+</span></button>
+      <div class="fa"><p>Un servicio Esencial puede estar listo el mismo día. El paquete Élite toma 1–2 días. El Presidencial y RestorFX pueden llevar hasta 36 horas. Te confirmamos el tiempo exacto al agendar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="loc reveal">
+  <div class="sh">
+    <div class="eyebrow">Encuéntranos</div>
+    <h2 class="st">Estamos en <span>León</span></h2>
+  </div>
+  <div class="li">
+    <div>
+      <div class="loc-h">Visítanos</div>
+      <p class="loc-p">Trabajamos con cita previa para garantizarte atención exclusiva y tiempo completo dedicado a tu vehículo. Agenda en minutos por WhatsApp.</p>
+      <div class="ld"><div class="lic" aria-hidden="true">📍</div><div class="lt"><strong>Dirección</strong><span>Blvd. J. Alonso de Torres 411, San Jerónimo, León, Gto.</span></div></div>
+      <div class="ld"><div class="lic" aria-hidden="true">🕐</div><div class="lt"><strong>Horario</strong><span>Lunes–Viernes 9am–6pm · Sábados 9am–2pm</span></div></div>
+      <div class="ld"><div class="lic" aria-hidden="true">📱</div><div class="lt"><strong>WhatsApp</strong><span>479 152 7895</span></div></div>
+      <br>
+      <a href="https://api.whatsapp.com/send?phone=524791527895&text=Hola,%20quiero%20agendar%20una%20cita" class="btn-gold">Agendar por WhatsApp</a>
+    </div>
+    <div class="mw">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.8540382494397!2d-101.6715838!3d21.1226842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbf0b9e6f6789%3A0xabcdef1234567890!2sBlvd.%20J.%20Alonso%20de%20Torres%20411%2C%20San%20Jer%C3%B3nimo%2C%2037200%20Le%C3%B3n%2C%20Gto.!5e0!3m2!1ses!2smx!4v1700000000001!5m2!1ses!2smx" title="Ubicación MD Máximo Detalle" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta reveal">
+  <div class="cta-in">
+    <div class="eyebrow">¿Listo para el cambio?</div>
+    <h2>Cada día que esperas<br><span>es dinero que pierdes</span></h2>
+    <span class="cs">Tu auto pierde valor cada semana sin protección. +700 propietarios en León ya actuaron.<br>La pregunta no es si hacerlo — es cuándo. Y la respuesta es <strong style="color:var(--gold)">HOY.</strong></span>
+    <a href="https://api.whatsapp.com/send?phone=524791527895&text=Hola,%20quiero%20cotizar%20un%20servicio%20de%20detailing" class="btn-gold" style="font-size:.95rem;padding:20px 52px">🔥 Quiero mi evaluación GRATIS ahora</a>
+    <div class="cg"><span aria-hidden="true">🛡</span> Satisfacción garantizada o repetimos el servicio sin costo</div>
+    <a href="tel:+524791527895" class="wt">479 152 7895</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl-logo">MD <span>Máximo Detalle</span></div>
+  <p>© 2025 MD Máximo Detalle · Blvd. J. Alonso de Torres 411, San Jerónimo, León, Gto.</p>
+  <div class="fs">
+    <a href="#" aria-label="Instagram">IG</a>
+    <a href="#" aria-label="Facebook">FB</a>
+    <a href="#" aria-label="TikTok">TK</a>
+  </div>
+</footer>
+
+<!-- WA FLOTANTE -->
+<a class="wa" href="https://api.whatsapp.com/send?phone=524791527895&text=Hola,%20quiero%20más%20información" aria-label="Contactar por WhatsApp">
+  <div class="wa-p" aria-hidden="true"></div>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+// ══════════════════════════
+// CANVAS PARTICLES ÉPICAS
+// ══════════════════════════
+(function(){
+  const canvas=document.getElementById('particle-canvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W,H,particles=[];
+
+  function resize(){
+    W=canvas.width=canvas.offsetWidth;
+    H=canvas.height=canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize',resize,{passive:true});
+
+  const GOLD='rgba(212,175,55,';
+  const types=['circle','diamond','spark','ring'];
+
+  function Particle(){
+    this.reset=function(){
+      this.x=Math.random()*W;
+      this.y=H+Math.random()*40;
+      this.size=Math.random()*3+.8;
+      this.speedY=Math.random()*.6+.2;
+      this.speedX=(Math.random()-.5)*.4;
+      this.opacity=0;
+      this.maxOpacity=Math.random()*.45+.08;
+      this.fadeIn=true;
+      this.life=0;
+      this.maxLife=Math.random()*220+120;
+      this.type=types[Math.floor(Math.random()*types.length)];
+      this.rotation=Math.random()*Math.PI*2;
+      this.rotSpeed=(Math.random()-.5)*.04;
+      this.pulse=Math.random()*Math.PI*2;
+    };
+    this.reset();
+    this.y=Math.random()*H; // scatter on init
+  }
+
+  for(let i=0;i<55;i++){particles.push(new Particle())}
+
+  function drawParticle(p){
+    ctx.save();
+    ctx.globalAlpha=p.opacity;
+    ctx.translate(p.x,p.y);
+    ctx.rotate(p.rotation);
+    const s=p.size;
+
+    if(p.type==='circle'){
+      ctx.beginPath();
+      ctx.arc(0,0,s,0,Math.PI*2);
+      ctx.fillStyle=GOLD+'1)';
+      ctx.shadowColor='rgba(212,175,55,.8)';
+      ctx.shadowBlur=s*4;
+      ctx.fill();
+    } else if(p.type==='diamond'){
+      ctx.beginPath();
+      ctx.moveTo(0,-s*1.6);
+      ctx.lineTo(s,.0);
+      ctx.lineTo(0,s*1.6);
+      ctx.lineTo(-s,0);
+      ctx.closePath();
+      ctx.strokeStyle=GOLD+'.9)';
+      ctx.lineWidth=.8;
+      ctx.shadowColor='rgba(212,175,55,.6)';
+      ctx.shadowBlur=s*3;
+      ctx.stroke();
+    } else if(p.type==='spark'){
+      for(let i=0;i<4;i++){
+        ctx.save();
+        ctx.rotate(i*Math.PI/2);
+        ctx.beginPath();
+        ctx.moveTo(0,0);
+        ctx.lineTo(0,-s*2.5);
+        ctx.strokeStyle=GOLD+'.8)';
+        ctx.lineWidth=.6;
+        ctx.shadowColor='rgba(212,175,55,.5)';
+        ctx.shadowBlur=4;
+        ctx.stroke();
+        ctx.restore();
+      }
+    } else { // ring
+      ctx.beginPath();
+      ctx.arc(0,0,s*1.4,0,Math.PI*2);
+      ctx.strokeStyle=GOLD+'.6)';
+      ctx.lineWidth=.5;
+      ctx.shadowColor='rgba(212,175,55,.4)';
+      ctx.shadowBlur=s*2;
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  let raf;
+  function animate(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      p.life++;
+      p.x+=p.speedX;
+      p.y-=p.speedY;
+      p.rotation+=p.rotSpeed;
+      p.pulse+=.04;
+      p.size+=Math.sin(p.pulse)*.008;
+      if(p.fadeIn&&p.opacity<p.maxOpacity)p.opacity+=.008;
+      if(p.life>p.maxLife*0.75)p.opacity-=.006;
+      if(p.opacity<=0||p.y<-20)p.reset();
+      drawParticle(p);
+    });
+    raf=requestAnimationFrame(animate);
+  }
+
+  // Solo animar si está visible
+  const heroObs=new IntersectionObserver(e=>{
+    if(e[0].isIntersecting){animate()}else{cancelAnimationFrame(raf)}
+  },{threshold:.1});
+  heroObs.observe(canvas.closest('.hero'));
+})();
+
+// ══════════════════════════
+// COUNTDOWN TIMER — 24h urgencia
+// ══════════════════════════
+(function(){
+  const h=document.getElementById('tc-h');
+  const m=document.getElementById('tc-m');
+  const s=document.getElementById('tc-s');
+  if(!h)return;
+  // timer fijo de 4h 27m para urgencia
+  let total=((4*60+27)*60+38);
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    if(total<=0){total=((23*60+59)*60+59);return} // reset
+    total--;
+    h.textContent=pad(Math.floor(total/3600));
+    m.textContent=pad(Math.floor((total%3600)/60));
+    s.textContent=pad(total%60);
+  }
+  tick();
+  setInterval(tick,1000);
+})();
+
+// ── NAV SCROLL
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>80),{passive:true});
+
+// ── REVEAL ON SCROLL — IntersectionObserver eficiente
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}
+  });
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// ── COUNTER ANIMATION
+const co=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,t=+el.dataset.target;
+    if(!t)return;
+    let v=0;const step=t/55;
+    const timer=setInterval(()=>{
+      v+=step;
+      if(v>=t){el.textContent=t+'+';clearInterval(timer)}
+      else el.textContent=Math.floor(v)+'+';
+    },16);
+    co.unobserve(el);
+  });
+},{threshold:.6});
+document.querySelectorAll('[data-target]').forEach(el=>co.observe(el));
+
+// ── BEFORE/AFTER SLIDER — clip-path limpio, sin zoom
+const ba=document.getElementById('ba');
+const bimg=document.getElementById('ba-bimg');
+const baline=document.getElementById('ba-line');
+
+function setSlider(clientX){
+  const r=ba.getBoundingClientRect();
+  const p=Math.min(Math.max((clientX-r.left)/r.width,.02),.98);
+  // solo clip-path — imagen 100% estática, sin resize
+  bimg.style.clipPath='inset(0 '+((1-p)*100).toFixed(2)+'% 0 0)';
+  baline.style.left=(p*100).toFixed(2)+'%';
+}
+
+let drag=false;
+ba.addEventListener('mousedown',e=>{drag=true;setSlider(e.clientX);e.preventDefault()});
+window.addEventListener('mousemove',e=>{if(drag)setSlider(e.clientX)},{passive:true});
+window.addEventListener('mouseup',()=>drag=false);
+ba.addEventListener('touchstart',e=>{drag=true;setSlider(e.touches[0].clientX)},{passive:true});
+window.addEventListener('touchmove',e=>{if(drag)setSlider(e.touches[0].clientX)},{passive:true});
+window.addEventListener('touchend',()=>drag=false);
+
+// ── FAQ ACCORDION
+document.querySelectorAll('.fq').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.fi-item.open').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+
+// ── LAZY LOAD mapa solo cuando está cerca
+const mapObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const iframe=e.target.querySelector('iframe[data-src]');
+    if(iframe){iframe.src=iframe.dataset.src;delete iframe.dataset.src}
+    mapObs.unobserve(e.target);
+  });
+},{rootMargin:'200px'});
+document.querySelectorAll('.mw').forEach(el=>{
+  const iframe=el.querySelector('iframe');
+  if(iframe){iframe.dataset.src=iframe.src;iframe.removeAttribute('src')}
+  mapObs.observe(el);
+});
+</script>
+</body>
+</html>
